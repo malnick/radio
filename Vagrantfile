@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 		deploy.vm.synced_folder "modules", "/etc/puppet/modules"
 		deploy.vm.synced_folder "manifests", "/etc/puppet/manifests"
 		deploy.vm.network :private_network, ip: "10.1.100.100"
-		#deploy.vm.provision :shell, :path => "install_puppet.sh"
+		deploy.vm.provision :shell, :path => "install_puppet.sh"
 		#deploy.vm.provision :shell, :path => "pe_mirror.sh"
 		deploy.vm.provision :puppet, :module_path => "modules", :manifests_path => "manifests", :manifest_file => "deploy_radio.pp"
 	end
